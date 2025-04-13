@@ -1,4 +1,4 @@
-package br.com.mangarosa.model;
+package drive.rede.com.br.model;
 
 import java.util.ArrayList;
 import java.util.List;

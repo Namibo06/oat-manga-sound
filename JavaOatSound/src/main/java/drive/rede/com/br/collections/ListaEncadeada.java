@@ -1,4 +1,4 @@
-package br.com.mangarosa.collections;
+package drive.rede.com.br.collections;
 
 /**
  * A classe {@code ListaEncadeada} implementa uma estrutura de dados de lista encadeada simples.
