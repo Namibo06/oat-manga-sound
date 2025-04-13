@@ -1,8 +1,9 @@
-package br.com.mangarosa;
+package drive.rede.com.br;
 
-import br.com.mangarosa.model.Musica;
-import br.com.mangarosa.model.ListaReproducao;
-import br.com.mangarosa.player.Player;
+
+import drive.rede.com.br.model.ListaReproducao;
+import drive.rede.com.br.model.Musica;
+import drive.rede.com.br.player.Player;
 
 import java.util.Scanner;
 

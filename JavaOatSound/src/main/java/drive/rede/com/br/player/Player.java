@@ -1,7 +1,7 @@
-package br.com.mangarosa.player;
+package drive.rede.com.br.player;
 
-import br.com.mangarosa.model.Musica;
-import br.com.mangarosa.model.ListaReproducao;
+import drive.rede.com.br.model.ListaReproducao;
+import drive.rede.com.br.model.Musica;
 
 import javax.sound.sampled.*;
 import java.io.File;
@@ -16,6 +16,7 @@ public class Player {
     public Player(ListaReproducao lista) {
         this.lista = lista;
     }
+
 
     public void tocar() throws Exception {
         Musica musica = lista.getMusicaAtual();

@@ -1,4 +1,4 @@
-package br.com.mangarosa.controller;
+package drive.rede.com.br.controller;
 
 public class MangaController {
 }
