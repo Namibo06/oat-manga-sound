@@ -1,4 +1,5 @@
 package drive.rede.com.br.model;
+
 import drive.rede.com.br.model.ListaReproducao;
 import drive.rede.com.br.model.Musica;
 
@@ -30,12 +31,14 @@ public class ReprodutorLista {
     }
 
     public void play() {
-        if (listaReproducao == null || listaReproducao.isVazia()) {
+        // Substitua a chamada a isVazia() por getMusicas().isEmpty() ou implemente isVazia() na ListaReproducao.
+        if (listaReproducao == null || listaReproducao.getMusicas().isEmpty()) {
             System.out.println("Lista de reprodução vazia ou não definida.");
             return;
         }
 
-        Musica musicaAtual = listaReproducao.obterMusica(0);
+        // Substitua obterMusica(0) por getMusicaAtual() ou use getMusicas().get(0)
+        Musica musicaAtual = listaReproducao.getMusicaAtual();
 
         if (musicaAtual == null) {
             System.out.println("Nenhuma música encontrada.");
@@ -43,7 +46,8 @@ public class ReprodutorLista {
         }
 
         try {
-            File audioFile = new File(musicaAtual.getPath());
+            // Substitua getPath() por getCaminho()
+            File audioFile = new File(musicaAtual.getCaminho());
             AudioInputStream audioStream = AudioSystem.getAudioInputStream(audioFile);
 
             clip = AudioSystem.getClip();
@@ -51,7 +55,8 @@ public class ReprodutorLista {
             clip.start();
             status = "Tocando";
 
-            System.out.println("Tocando: " + musicaAtual.getTitulo());
+            // Substitua getTitulo() por getNome()
+            System.out.println("Tocando: " + musicaAtual.getNome());
 
         } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             System.out.println("Erro ao tocar música: " + e.getMessage());
