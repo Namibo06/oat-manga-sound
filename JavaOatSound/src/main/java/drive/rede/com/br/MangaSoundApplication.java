@@ -38,7 +38,10 @@ public class MangaSoundApplication {
                         String artista = sc.nextLine();
                         System.out.print("Caminho do arquivo .wav: ");
                         String caminho = sc.nextLine();
-                        lista.adicionarMusica(new Musica(nome, artista, caminho));
+                        System.out.print("Duração (em segundos): ");
+                        int duracao = sc.nextInt();
+                        sc.nextLine();
+                        lista.adicionarMusica(new Musica(nome, artista,caminho,duracao));
                         System.out.println("✅ Música adicionada com sucesso!");
                         break;
                     case 2:
