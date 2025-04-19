@@ -40,45 +40,49 @@ public class ListaReproducao {
         atual = 0;
     }
 
-    public boolean removerMusica(int posicao){
-        if (!(musicas.isEmpty()) && posicao > musicas.size()){
+    public boolean removerMusica(int posicao) {
+        if (!(musicas.isEmpty()) && posicao > musicas.size()) {
             Scanner scan = new Scanner(System.in);
             posicao = scan.nextInt();
             musicas.remove(posicao);
             scan.close();
             return true;
-        }
-        else{ return false;}
-    }
-
-    public  boolean IsVazia(){
-        if (musicas.isEmpty()){
+        } else {
             return false;
         }
-        else {return true;}
     }
 
-    public int tamanho(){
+    public boolean IsVazia() {
+        if (musicas.isEmpty()) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public int tamanho() {
         return musicas.size();
     }
 
-    public void criarListaApartirDe(ListaReproducao novaLista){
+    public void criarListaApartirDe(ListaReproducao novaLista) {
         Scanner scan = new Scanner(System.in);
         String nomeDanovaLista = scan.next();
         novaLista = new ListaReproducao(nomeDanovaLista);
         scan.close();
-        System.out.println("A nova lista "+ nomeDanovaLista+ " foi criada com ssucesso!");
+        System.out.println("A nova lista " + nomeDanovaLista + " foi criada com ssucesso!");
     }
 
-    public int posicaoDa(Musica musica){
+    public int posicaoDa(Musica musica) {
         return lista.indexOf(musica);
+
     }
 
-    public boolean contemMusica(Musica musica){
-        if (musicas.contains(musica)){
+    public boolean contemMusica(Musica musica) {
+        if (musicas.contains(musica)) {
             return true;
+        } else {
+            return false;
         }
-        else { return false;}
     }
 
     public boolean limparLista() {
@@ -94,7 +98,7 @@ public class ListaReproducao {
         }
     }
 
-    public Musica obterMusica(int posicao){
+    public Musica obterMusica(int posicao) {
         System.out.println("Digite a posição da musica: ");
         Scanner scan = new Scanner(System.in);
         posicao = scan.nextInt();
@@ -103,11 +107,12 @@ public class ListaReproducao {
 
     }
 
-    public List<Musica> getMusicas () {
+
+    public List<Musica> getMusicas() {
         return musicas;
     }
 
-    public String getNome () {
+    public String getNome() {
         return nome;
     }
 }
