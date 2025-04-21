@@ -1,5 +1,6 @@
 package drive.rede.com.br.controller;
-
+import drive.rede.com.br.collections.ListaEncadeada;
+import drive.rede.com.br.model.ReprodutorLista;
 import drive.rede.com.br.model.Musica;
 import java.util.LinkedList;
 import java.util.List;
@@ -12,6 +13,8 @@ public class MangaController {
     private int indiceListaAtual;
     private int indiceMusicaAtual;
     private boolean tocando;
+    private ListaEncadeada artista;
+    private ReprodutorLista reprodutorLista;
 
     public MangaController() {
         repositorioMusica = new LinkedList<>();

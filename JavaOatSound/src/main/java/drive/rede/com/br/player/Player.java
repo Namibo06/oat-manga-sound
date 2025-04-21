@@ -1,3 +1,4 @@
+// Player.java
 package drive.rede.com.br.player;
 
 import drive.rede.com.br.model.ListaReproducao;
@@ -9,7 +10,7 @@ import java.io.File;
 public class Player {
     private ListaReproducao lista;
     private Clip clip;
-    private AudioInputStream audioInputStream;
+    private AudioInputStream stream;
     private Long frameAtual;
     private String status = "stop";
 
@@ -17,24 +18,24 @@ public class Player {
         this.lista = lista;
     }
 
-
     public void tocar() throws Exception {
-        Musica musica = lista.getMusicaAtual();
-        if (musica == null) {
+        Musica m = lista.getMusicaAtual();
+        if (m == null) {
             System.out.println("Nenhuma música disponível na lista.");
             return;
         }
+        if (clip != null && clip.isRunning()) {
+            clip.stop();
+            clip.close();
+        }
 
-        if (clip != null && clip.isRunning()) clip.stop();
-
-        File file = new File(musica.getCaminho());
-        audioInputStream = AudioSystem.getAudioInputStream(file);
+        File f = new File(m.getCaminho());
+        stream = AudioSystem.getAudioInputStream(f);
         clip = AudioSystem.getClip();
-        clip.open(audioInputStream);
+        clip.open(stream);
         clip.start();
-        clip.loop(Clip.LOOP_CONTINUOUSLY);
         status = "play";
-        System.out.println("🎶 Tocando: " + musica);
+        System.out.println(" Tocando: " + m);
     }
 
     public void pausar() {
@@ -42,7 +43,7 @@ public class Player {
             frameAtual = clip.getMicrosecondPosition();
             clip.stop();
             status = "pause";
-            System.out.println("⏸ Música pausada.");
+            System.out.println(" Música pausada.");
         }
     }
 
@@ -51,7 +52,7 @@ public class Player {
             clip.setMicrosecondPosition(frameAtual);
             clip.start();
             status = "play";
-            System.out.println("▶ Continuando música.");
+            System.out.println(" Continuando música.");
         }
     }
 
@@ -60,7 +61,7 @@ public class Player {
             clip.stop();
             clip.close();
             status = "stop";
-            System.out.println("⏹ Música parada.");
+            System.out.println(" Música parada.");
         }
     }
 
@@ -71,6 +72,16 @@ public class Player {
     }
 
     public void anterior() throws Exception {
+        if (clip != null) {
+            long posUS = clip.getMicrosecondPosition();
+            if (posUS > 10_000_000L) {
+                clip.setMicrosecondPosition(0);
+                clip.start();
+                status = "play";
+                System.out.println(" Música reiniciada.");
+                return;
+            }
+        }
         parar();
         lista.musicaAnterior();
         tocar();
