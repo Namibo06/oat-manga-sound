@@ -1,4 +1,12 @@
 
 
 # Avaliação da Equipe 
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQR_CPmMyA2TPC9rojygEFU63YbA75dqdp1K5eEHRdORQTnApYtnNHNdRMoZxDc4vcV43BAcoinGIpU/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+| Integrante         | Levi Baptista | Mateus Queiroz | Murilo Marinho | Darlan Deivid | Joalisson Pinto |
+|--------------------|---------------|----------------|----------------|----------------|------------------|
+| **Levi Baptista**  | 10            | 10             | 10             | 10             | 10               |
+| **Mateus Queiroz** | 10            | 10             | 10             | 10             | 10               |
+| **Murilo Marinho** | 10            | 10             | 10             | 10             | 10               |
+| **Darlan Deivid**  | 10            | 10             | 10             | 10             | 10               |
+| **Joalisson Pinto**| 10            | 10             | 10             | 10             | 10               |
+| **Nota**           | **50**        | **50**         | **50**         | **50**         | **50**           |
+
